@@ -9,7 +9,7 @@ class UsersController {
     const userCreateService = new UserCreateService(userRepository);
     await userCreateService.execute({ name, email, password });
 
-    return response.status(201).json("success");
+    return response.status(201).json("Usuário criado com sucesso.");
   }
 }
 
