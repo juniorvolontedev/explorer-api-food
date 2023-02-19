@@ -3,7 +3,6 @@ const AppError = require("../utils/AppError");
 const authConfig = require("../configs/auth");
 const { sign } = require("jsonwebtoken");
 
-// TODO: Ver sobre mudar o nome dessa classe para SessionCreateService
 class SessionService {
   constructor(userRepository) {
     this.userRepository = userRepository;

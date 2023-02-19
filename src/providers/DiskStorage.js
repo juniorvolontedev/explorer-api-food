@@ -2,17 +2,17 @@ const fs = require("fs");
 const path = require("path");
 const slugify = require("slugify");
 const uploadConfig = require("../configs/upload");
-
+const AppError = require("../utils/AppError");
 class DiskStorage {
   async saveFile(file) {
     const { originalname, buffer, mimetype } = file;
 
     if (!["image/png", "image/jpg", "image/jpeg"].includes(mimetype)) {
-      throw new Error("Só são permitidos arquivos nos formatos PNG e JPG.");
+      throw new AppError("Só são permitidos arquivos nos formatos PNG e JPG.");
     }
 
     if (buffer.byteLength > 1 * 1024 * 1024) {
-      throw new Error("O tamanho do arquivo não pode exceder 1MB.");
+      throw new AppError("O tamanho do arquivo não pode exceder 1MB.");
     }
 
     const fileNameParts = path.parse(originalname);
