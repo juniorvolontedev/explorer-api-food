@@ -23,6 +23,7 @@ async function ensureAdminAuthenticated(request, response, next) {
       const userRepository = new UserRepository();
       const user = await userRepository.getUserById(user_id);
 
+      // TODO: Rever a necessidade desse if (!user)
       if (!user) {
         throw new AppError("JWT Token inválido", 401);
       }
