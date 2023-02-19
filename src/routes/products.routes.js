@@ -5,8 +5,16 @@ const productsController = new ProductsController();
 
 const ensureAdminAuthenticated = require("../middlewares/ensureAdminAuthenticated");
 
+const multer = require("multer");
+const upload = multer();
+
 const productsRoutes = Router();
 
-productsRoutes.post("/", ensureAdminAuthenticated, productsController.create);
+productsRoutes.post(
+  "/",
+  ensureAdminAuthenticated,
+  upload.single("thumbnailFile"),
+  productsController.create
+);
 
 module.exports = productsRoutes;

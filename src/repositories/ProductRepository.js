@@ -1,8 +1,16 @@
 const knex = require("../database/knex");
 
 class ProductRepository {
-  async create({ name, category_id, ingredients, price, description }) {
+  async create({
+    thumbnail,
+    name,
+    category_id,
+    ingredients,
+    price,
+    description,
+  }) {
     const productCreated = await knex("products").insert({
+      thumbnail,
       name,
       category_id,
       price,
