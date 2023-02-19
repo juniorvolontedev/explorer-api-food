@@ -1,10 +1,10 @@
 const { Router } = require("express");
 
-const ensureAuthenticated = require("../middlewares/ensureAuthenticated");
+const ensureAdminAuthenticated = require("../middlewares/ensureAdminAuthenticated");
 
 const productsRoutes = Router();
 
-productsRoutes.get("/", ensureAuthenticated, (request, response) => {
+productsRoutes.get("/", ensureAdminAuthenticated, (request, response) => {
   response.json("Hello World");
 });
 
