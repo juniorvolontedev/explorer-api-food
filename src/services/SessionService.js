@@ -31,12 +31,7 @@ class SessionService {
       expiresIn,
     });
 
-    const auth = {
-      user,
-      token,
-    };
-
-    return auth;
+    return { user, token };
   }
 }
 
